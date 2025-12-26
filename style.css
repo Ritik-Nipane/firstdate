@@ -1,0 +1,221 @@
+/* style.css */
+:root {
+    --primary: #ff8fab; /* Soft Pink */
+    --secondary: #d63384; /* Deep Rose */
+    --accent: #ffd700; /* Gold/Sparkle */
+    --glass-bg: rgba(255, 255, 255, 0.25); /* More transparent for background */
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --text: #fff; /* White text for dark background */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    /* REPLACE THE URL BELOW WITH A REAL 4K ROMANTIC MOUNTAIN IMAGE IF YOU HAVE ONE */
+    background: linear-gradient(rgba(43, 24, 33, 0.5), rgba(68, 35, 49, 0.7)), url('https://placehold.co/3840x2160/2b1821/e8c3ce?text=Romantic+Mountain+View+4K');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps background still while scrolling */
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Floating Background Animation */
+#floating-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.floater {
+    position: absolute;
+    /* Mixing hearts and flower colors */
+    text-shadow: 0 0 5px rgba(255, 192, 203, 0.8);
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% { transform: translateY(-10vh) scale(1.2) rotate(360deg); opacity: 0; }
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.navbar a {
+    text-decoration: none;
+    color: var(--secondary);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+.navbar a:hover, .navbar a.active { 
+    transform: translateY(-3px);
+    border-color: var(--primary);
+    background: white;
+}
+
+/* Layouts & Typography */
+.hero-section {
+    min-height: 100vh;
+    display: flex; justify-content: center; align-items: center; padding: 20px;
+    padding-top: 80px; /* Space for navbar on mobile */
+}
+.container { max-width: 800px; margin: 80px auto; padding: 20px; }
+
+h1, h2, h3 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--primary);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.title { font-size: 4rem; margin-bottom: 10px; }
+.subtitle { font-size: 1.2rem; margin-bottom: 30px; font-weight: 300; }
+
+/* Glassmorphism Cards - Prettier */
+.glass-card, .glass-panel, .event-content, .question-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid var(--glass-border);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+.glass-panel:hover, .question-card:hover { transform: translateY(-5px); }
+
+/* Main Photo Frame - Fits better and pulses */
+.main-photo-frame {
+    width: 280px; height: 380px;
+    margin: 0 auto 30px;
+    background: white;
+    padding: 12px 12px 60px 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    transform: rotate(-3deg);
+    animation: gentlePulse 4s ease-in-out infinite;
+}
+@keyframes gentlePulse {
+    0% { transform: rotate(-3deg) scale(1); }
+    50% { transform: rotate(-3deg) scale(1.03); box-shadow: 0 20px 40px rgba(255, 143, 171, 0.6); }
+    100% { transform: rotate(-3deg) scale(1); }
+}
+.main-photo-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 12px 25px; border-radius: 50px;
+    text-decoration: none; font-weight: bold; margin: 10px;
+    box-shadow: 0 5px 15px rgba(214, 51, 132, 0.5);
+    transition: all 0.3s ease; border: none; cursor: pointer;
+}
+.btn:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(214, 51, 132, 0.8); }
+
+/* --- New Styles for YourSay Page --- */
+.review-area textarea {
+    width: 100%; height: 150px;
+    background: rgba(255,255,255,0.9);
+    border: 3px solid var(--primary);
+    border-radius: 15px; padding: 15px;
+    font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #333;
+    resize: none; outline: none;
+    transition: border-color 0.3s;
+}
+.review-area textarea:focus { border-color: var(--accent); }
+
+.question-card { text-align: left; margin-bottom: 20px; }
+.question-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: var(--primary); margin-bottom: 10px; }
+.question-card input {
+    width: 100%; padding: 10px;
+    border-radius: 10px; border: none;
+    background: rgba(255,255,255,0.9); color: #333;
+}
+
+/* --- Keeping existing Timeline/Gallery styles but adjusting colors --- */
+/* Timeline */
+.timeline { position: relative; max-width: 600px; margin: 0 auto; }
+.timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 3px; background: rgba(255, 143, 171, 0.5); }
+.timeline-event { position: relative; padding-left: 60px; margin-bottom: 30px; text-align: left; }
+.time-marker { position: absolute; left: 0; top: 0; width: 45px; height: 45px; background: linear-gradient(45deg, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 0 15px rgba(255, 143, 171, 0.8); z-index: 10; }
+.timeline-event.special .event-content { border: 3px solid var(--accent); background: rgba(255, 215, 0, 0.15); }
+
+/* Gallery */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+.gallery-img { width: 100%; height: 200px; /* Fixed height for uniformity */ object-fit: cover; border-radius: 15px; border: 3px solid rgba(255,255,255,0.7); transition: transform 0.4s ease, border-color 0.3s; }
+.gallery-img:hover { transform: scale(1.05) rotate(2deg); border-color: var(--primary); z-index: 5; }
+
+/* Animations */
+.fade-in { animation: fadeIn 1.2s ease forwards; opacity: 0; }
+@keyframes fadeIn { to { opacity: 1; } }
+.slide-up { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+.slide-up.visible { opacity: 1; transform: translateY(0); }
+
+/* style.css */
+:root {
+    --primary: #ff8fab;
+    --secondary: #d63384;
+    --accent: #ffd700;
+    --glass-bg: rgba(43, 24, 33, 0.6); /* Darker glass to make text pop on nature bg */
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --text: #fff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    /* This is the starting image */
+    background: url('images/bg1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    
+    /* This makes the change fade in smoothly over 1 second */
+    transition: background-image 1s ease-in-out;
+    
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- Rest of CSS remains the same as before --- */
+/* (Copy the rest of the CSS from the previous response here) */
+
+/* Specific fix for inputs to make them readable on mountain background */
+.review-area textarea, .question-card input {
+    width: 100%; 
+    background: rgba(255,255,255,0.9);
+    border: 3px solid var(--primary);
+    border-radius: 15px; padding: 15px;
+    font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #333;
+    resize: none; outline: none;
+}
+.btn {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 12px 25px; border-radius: 50px;
+    border: none; cursor: pointer; font-weight: bold;
+    box-shadow: 0 5px 15px rgba(214, 51, 132, 0.5);
+    transition: all 0.3s ease;
+}

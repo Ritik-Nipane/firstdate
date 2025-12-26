@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Say, My Love</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          // YOUR PUBLIC KEY IS NOW SET HERE:
+          emailjs.init("yDg5KVrHXP0g_MEHc");
+       })();
+    </script>
+</head>
+<body>
+    <div id="floating-container"></div>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="memories.html">Memories</a>
+        <a href="future.html">Future</a>
+    </div>
+
+    <div class="container">
+        <div class="slide-up" style="text-align: center; margin-bottom: 40px;">
+            <h1 class="title" style="color: #ff8fab;">Your Turn, Beautiful ✨</h1>
+            <p class="subtitle" style="color: white; text-shadow: 2px 2px 4px black;">Tell me what's on your heart.</p>
+        </div>
+
+        <section class="slide-up" style="margin-bottom: 50px;">
+             <div class="glass-card review-area">
+                 <h2 style="margin-bottom: 20px; text-align: center;">🌹 The Boyfriend Review</h2>
+                 <p style="margin-bottom: 15px; text-align: center;">How have I been this past month?</p>
+                 <textarea id="review_input" placeholder="Type your thoughts here..."></textarea>
+             </div>
+        </section>
+
+        <section class="slide-up">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #ff8fab; text-shadow: 2px 2px 4px black;">Three Little Questions</h2>
+            
+            <div class="question-card">
+                <h3>1. What was your absolute favorite moment? 🏆</h3>
+                <input type="text" id="answer1_input" placeholder="Your answer...">
+            </div>
+
+            <div class="question-card">
+                <h3>2. What is one thing you want us to do in Month 2? 🚀</h3>
+                <input type="text" id="answer2_input" placeholder="Your answer...">
+            </div>
+
+            <div class="question-card">
+                <h3>3. Describe 'Us' in one word ❤️</h3>
+                <input type="text" id="answer3_input" placeholder="Your answer...">
+            </div>
+            
+             <div style="text-align: center; margin-top: 30px;">
+                 <button class="btn" onclick="sendEmail()">Send to Him 💌</button>
+            </div>
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
